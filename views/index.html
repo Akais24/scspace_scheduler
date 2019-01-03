@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title>공간위 상근 배정 프로그램</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+
+  <body>
+    공간위 상근 배정 프로그램
+  </body>
+
+  <form name="foo" method="post" enctype="multipart/form-data" action="/process">
+    <input type="file" name="upload" multiple>
+  </form>
+
+  <div>
+    <button id="submit_button" onclick="document.foo.submit();">제출</button>
+  </div>
+
+  <script>
+    function submit(){
+      
+      function redirectPost(url, data) {
+        var form = document.createElement('form');
+        document.body.appendChild(form);
+        form.method = 'post';
+        form.action = url;
+        for (var name in data) {
+          var input = document.createElement('input');
+          input.type = 'hidden';
+          input.name = name;
+          input.value = data[name];
+          form.appendChild(input);
+        }
+        form.submit();
+      }
+
+      redirectPost(document.URL + 'process', {});
+    }
+  </script>
+</html>

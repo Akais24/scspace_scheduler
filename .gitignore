@@ -1,0 +1,5 @@
+/node_modules
+/result/*
+/input/*
+*.log
+.DS_Store
